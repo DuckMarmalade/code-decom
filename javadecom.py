@@ -145,15 +145,15 @@ class JavaCodeExtractor:
             }}]
         }}"""
         response = self.chatgroq.invoke(prompt)
-        # Convert string response to JSON
+
         try:
             return json.loads(response.content)
         except json.JSONDecodeError:
-            # If response is not valid JSON, return raw content
+            
             return response.content
 
 if __name__ == "__main__":
-    # Example Java code
+    
     java_code = code
     # def create_component_extraction_prompt(json_response):
     #     prompt = f"""
@@ -179,7 +179,7 @@ if __name__ == "__main__":
 #         except json.JSONDecodeError:
 #             return response.content
 
-# Usage
+
 if __name__ == "__main__":
     extractor = JavaCodeExtractor(model_name="llama-3.3-70b-versatile", api_key="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")
     json_result = extractor.extract_components(java_code)
